@@ -54,77 +54,98 @@ class _PlayListScreenState extends State<PlayListScreen> {
     return Scaffold(
       backgroundColor: ThemeData.dark().primaryColor,
       extendBodyBehindAppBar: true,
-      appBar: !isScrollingDown
-          ? AppBar(
-              leadingWidth: 140,
-              leading: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      customBorder: const CircleBorder(),
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.all(6.0),
-                        decoration: const BoxDecoration(
-                            color: Colors.black26, shape: BoxShape.circle),
-                        child: const Icon(
-                          Icons.chevron_left,
-                          size: 28.0,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 16.0,
-                    ),
-                    InkWell(
-                      customBorder: const CircleBorder(),
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.all(6.0),
-                        decoration: const BoxDecoration(
-                            color: Colors.black26, shape: BoxShape.circle),
-                        child: const Icon(
-                          Icons.chevron_right,
-                          size: 28.0,
-                        ),
-                      ),
-                    ),
-                  ],
+      appBar: AppBar(
+        leadingWidth: 140,
+        leading: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                customBorder: const CircleBorder(),
+                onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(6.0),
+                  decoration: const BoxDecoration(
+                      color: Colors.black26, shape: BoxShape.circle),
+                  child: const Icon(
+                    Icons.chevron_left,
+                    size: 28.0,
+                  ),
                 ),
               ),
-              actions: [
-                TextButton.icon(
-                  style: TextButton.styleFrom(primary: Colors.white),
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.account_circle_outlined,
-                    size: 30.0,
-                  ),
-                  label: const Text("Rached Khalledi"),
-                ),
-                const SizedBox(
-                  width: 8.0,
-                ),
-                IconButton(
-                  padding: const EdgeInsets.only(),
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.keyboard_arrow_down,
-                    size: 30.0,
+              SizedBox(
+                width: 16.0,
+              ),
+              InkWell(
+                customBorder: const CircleBorder(),
+                onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(6.0),
+                  decoration: const BoxDecoration(
+                      color: Colors.black26, shape: BoxShape.circle),
+                  child: const Icon(
+                    Icons.chevron_right,
+                    size: 28.0,
                   ),
                 ),
-                const SizedBox(
-                  width: 20.0,
-                ),
-              ],
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-            )
-          : AppBar(
-              backgroundColor: Colors.transparent,
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton.icon(
+            style: TextButton.styleFrom(primary: Colors.white),
+            onPressed: () {},
+            icon: Icon(
+              Icons.account_circle_outlined,
+              size: 30.0,
             ),
+            label: const Text("Rached Khalledi"),
+          ),
+          const SizedBox(
+            width: 8.0,
+          ),
+          PopupMenuButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(6.0),
+              ),
+            ),
+            color: ThemeData.dark().primaryColor,
+            offset: Offset(20, 0),
+            icon: Icon(
+              Icons.keyboard_arrow_down,
+              size: 30.0,
+            ),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                height: 30.0,
+                textStyle: TextStyle(
+                  color: Colors.white,
+                ),
+                child: Text(
+                  "History",
+                ),
+              ),
+              PopupMenuItem(
+                height: 30.0,
+                textStyle: TextStyle(
+                  color: Colors.white,
+                ),
+                child: Text(
+                  "Sign out",
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            width: 20.0,
+          ),
+        ],
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
